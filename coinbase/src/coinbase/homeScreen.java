@@ -47,7 +47,6 @@ public class homeScreen extends JFrame {
 
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
 		
@@ -58,6 +57,7 @@ public class homeScreen extends JFrame {
         //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //f2.setSize(1000,1000);
         Image img = new ImageIcon(this.getClass().getResource("/Coinbase.png")).getImage();
+        contentPane.setLayout(null);
         contentPane.setLayout(null);
         
         JPanel panelTotalBal = new JPanel();
@@ -86,11 +86,6 @@ public class homeScreen extends JFrame {
         buySellPan.setBorder(new LineBorder(SystemColor.window, 5, true));
         contentPane.add(buySellPan);
         buySellPan.setLayout(null);
-        
-        JButton buySellButton = new JButton("Buy / Sell");
-        buySellButton.setBackground(Color.BLUE);
-        buySellButton.setBounds(73, 22, 126, 50);
-        buySellPan.add(buySellButton);
         
         
         JPanel panel_2 = new JPanel();
@@ -134,10 +129,10 @@ public class homeScreen extends JFrame {
         
         
         JPanel panel = new JPanel();
+        panel.setBounds(32, 91, 404, 262);
         panel.setBorder(new LineBorder(SystemColor.window, 6, true));
         //panel.setBackground(UIManager.getColor("CheckBoxMenuItem.background"));
         panel.setBackground(new Color(247,247,247,255));
-        panel.setBounds(32, 91, 404, 262);
         contentPane.add(panel);
         panel.setLayout(null);
         
@@ -167,14 +162,19 @@ public class homeScreen extends JFrame {
         litecoin.setIcon(new ImageIcon(litecoinimg));
         
         JLabel welcomeLabel = new JLabel("Welcome");
-        welcomeLabel.setBounds(426, 16, 147, 63);
+        welcomeLabel.setBounds(406, 17, 147, 63);
         welcomeLabel.setFont(new Font("Tahoma", Font.PLAIN, 35));
         contentPane.add(welcomeLabel);
         
+        JLabel homeLabel = new JLabel("Home");
+        homeLabel.setBounds(908, 6, 86, 63);
+        homeLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        contentPane.add(homeLabel);
+        
         JLabel logoLabel = new JLabel("");
+        logoLabel.setBounds(6, 6, 128, 73);
         Image imgLOGO = new ImageIcon(this.getClass().getResource("/Coinbase.png")).getImage();
         logoLabel.setIcon(new ImageIcon(imgLOGO));
-        logoLabel.setBounds(6, 6, 128, 73);
         contentPane.add(logoLabel);
         
 	}
