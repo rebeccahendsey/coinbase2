@@ -818,32 +818,6 @@ public class urlIEXData
             watchlistLab.setFont(new Font("Tahoma", Font.PLAIN, 35));
             f2.getContentPane().add(watchlistLab);
             
-            JPanel panel_1 = new JPanel();
-            panel_1.setBounds(27, 82, 574, 39);
-            panel_1.setBackground(Color.WHITE);
-            panel_1.setBorder(new LineBorder(new Color(238, 238, 238), 20, true));
-            f2.getContentPane().add(panel_1);
-            panel_1.setLayout(null);
-            
-            JLabel lblNewLabel = new JLabel("NAME");
-            lblNewLabel.setBounds(20, 17, 37, 16);
-            panel_1.add(lblNewLabel);
-            
-            JLabel lblPrice = new JLabel("PRICE");
-            lblPrice.setBounds(92, 12, 68, 27);
-            panel_1.add(lblPrice);
-            
-            JLabel lblHourChange = new JLabel("24 HR CHANGE");
-            lblHourChange.setBounds(172, 12, 96, 27);
-            panel_1.add(lblHourChange);
-            
-            JLabel lblHrVolume = new JLabel("24 HR VOLUME");
-            lblHrVolume.setBounds(304, 12, 103, 27);
-            panel_1.add(lblHrVolume);
-            
-            JLabel lblMarketCap = new JLabel("MARKET CAP");
-            lblMarketCap.setBounds(433, 12, 103, 27);
-            panel_1.add(lblMarketCap);
             
             JPanel watchlistPanel = new JPanel();
             watchlistPanel.setBackground(Color.WHITE);
@@ -853,8 +827,8 @@ public class urlIEXData
             
            JTextField BitcoinTF = new JTextField(companyName);
            BitcoinTF.setBounds(32, 53, 130, 26);
-            watchlistPanel.add(BitcoinTF);
-            BitcoinTF.setColumns(10);
+           watchlistPanel.add(BitcoinTF);
+           BitcoinTF.setColumns(10);
             
 
 		} catch (ParseException e) {

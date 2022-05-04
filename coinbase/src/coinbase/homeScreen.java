@@ -6,7 +6,6 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.SystemColor;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,6 +14,15 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import java.net.*;
+import java.text.ParseException;
+import java.util.Scanner;
+import java.io.*;
+import org.json.*;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONAware;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 public class homeScreen extends JFrame {
 
@@ -41,21 +49,83 @@ public class homeScreen extends JFrame {
 	 * Create the frame.
 	 */
 	public homeScreen() {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//setBounds(100, 100, 450, 300);
         setSize(1000,1000);
 
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(null);
 		setContentPane(contentPane);
+        
+        JLabel watchlistLab = new JLabel("Watchlist");
+        watchlistLab.setBounds(42, 354, 199, 49);
+        watchlistLab.setFont(new Font("Tahoma", Font.PLAIN, 35));
+        contentPane.add(watchlistLab);
+        
+        
+        JPanel panel_1 = new JPanel();
+        panel_1.setBackground(Color.YELLOW);
+        panel_1.setBorder(new LineBorder(new Color(238, 238, 238), 20, true));
+        panel_1.setBounds(38, 67, 574, 39);
+        panel_1.setLayout(null);
+        
+        JPanel panel_3 = new JPanel();
+        panel_3.setBorder(null);
+        panel_3.setBackground(Color.WHITE);
+        panel_3.setBounds(32, 408, 664, 385);
+        contentPane.add(panel_3);
+        panel_3.setLayout(null);
+        
+        
+        JPanel panel_2 = new JPanel();
+        panel_2.setBounds(6, 6, 652, 49);
+        panel_3.add(panel_2);
+        panel_2.setBorder(null);
+        panel_2.setBackground(Color.LIGHT_GRAY);
+        panel_2.setLayout(null);
 		
-		
-		//JFrame f2 = new JFrame("Buy and Sell Cryptocurrencies ");
+		try{
+            URL url = new URL("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false");
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.connect();
 
-		//f2.getContentPane().setBackground(Color.WHITE);
-	    
-        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //f2.setSize(1000,1000);
+            int response = connection.getResponseCode();
+
+            if(response != 200){
+                throw new RuntimeException("HttpResponseCode: " + response);
+            }
+            else{
+                StringBuilder data = new StringBuilder();
+                Scanner scanner = new Scanner(url.openStream());
+
+                while(scanner.hasNext()){
+                    data.append(scanner.nextLine());
+                }
+                scanner.close();
+
+                JSONParser parse = new JSONParser();
+                JSONArray obj = (JSONArray) parse.parse(String.valueOf(data));
+
+                JSONObject id = (JSONObject) obj.get(0);
+                System.out.println(id.get("id"));
+                String id2 = (String) id.get("id");
+                
+                JTextField BitcoinTF = new JTextField(id2);
+                BitcoinTF.setBounds(10, 70, 70, 50);
+                BitcoinTF.setBackground(Color.WHITE);
+                panel_3.add(BitcoinTF);
+                System.out.println(id2);
+                BitcoinTF.setEditable(false);
+
+     
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+		
+
         Image img = new ImageIcon(this.getClass().getResource("/Coinbase.png")).getImage();
         contentPane.setLayout(null);
         contentPane.setLayout(null);
@@ -87,46 +157,7 @@ public class homeScreen extends JFrame {
         contentPane.add(buySellPan);
         buySellPan.setLayout(null);
         
-        
-        JPanel panel_2 = new JPanel();
-        panel_2.setBounds(32, 399, 647, 387);
-        panel_2.setBorder(new LineBorder(new Color(238, 238, 238), 7, true));
-        panel_2.setBackground(Color.WHITE);
-        contentPane.add(panel_2);
-        panel_2.setLayout(null);
-        
-        JLabel watchlistLab = new JLabel("Watchlist");
-        watchlistLab.setBounds(17, 6, 199, 49);
-        watchlistLab.setFont(new Font("Tahoma", Font.PLAIN, 35));
-        panel_2.add(watchlistLab);
-        
-        JPanel panel_1 = new JPanel();
-        panel_1.setBackground(Color.WHITE);
-        panel_1.setBorder(new LineBorder(new Color(238, 238, 238), 20, true));
-        panel_1.setBounds(38, 67, 574, 39);
-        panel_2.add(panel_1);
-        panel_1.setLayout(null);
-        
-        JLabel lblNewLabel = new JLabel("NAME");
-        lblNewLabel.setBounds(6, 6, 68, 27);
-        panel_1.add(lblNewLabel);
-        
-        JLabel lblPrice = new JLabel("PRICE");
-        lblPrice.setBounds(93, 6, 68, 27);
-        panel_1.add(lblPrice);
-        
-        JLabel lblHourChange = new JLabel("24 HR CHANGE");
-        lblHourChange.setBounds(173, 6, 96, 27);
-        panel_1.add(lblHourChange);
-        
-        JLabel lblHrVolume = new JLabel("24 HR VOLUME");
-        lblHrVolume.setBounds(313, 6, 103, 27);
-        panel_1.add(lblHrVolume);
-        
-        JLabel lblMarketCap = new JLabel("MARKET CAP");
-        lblMarketCap.setBounds(465, 6, 103, 27);
-        panel_1.add(lblMarketCap);
-        
+       
         
         JPanel panel = new JPanel();
         panel.setBounds(32, 91, 404, 262);
@@ -177,7 +208,29 @@ public class homeScreen extends JFrame {
         logoLabel.setIcon(new ImageIcon(imgLOGO));
         contentPane.add(logoLabel);
         
+   
+     
+        
+        JLabel lblNewLabel = new JLabel("NAME");
+        lblNewLabel.setBounds(13, 6, 68, 27);
+        panel_2.add(lblNewLabel);
+        
+        JLabel lblPrice = new JLabel("PRICE");
+        lblPrice.setBounds(93, 6, 68, 27);
+        panel_2.add(lblPrice);
+        
+        JLabel lblHourChange = new JLabel("24 HR CHANGE");
+        lblHourChange.setBounds(173, 6, 96, 27);
+        panel_2.add(lblHourChange);
+        
+        JLabel lblHrVolume = new JLabel("24 HR VOLUME");
+        lblHrVolume.setBounds(326, 6, 103, 27);
+        panel_2.add(lblHrVolume);
+        
+               
+        JLabel lblMarketCap = new JLabel("MARKET CAP");
+        lblMarketCap.setBounds(480, 6, 103, 27);
+        panel_2.add(lblMarketCap);
+        
 	}
-
-
 }

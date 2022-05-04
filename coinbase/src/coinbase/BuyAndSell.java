@@ -27,6 +27,8 @@ import netscape.javascript.JSObject;
 
 
 public class BuyAndSell extends coinbase {
+	public BuyAndSell() {
+	}
 	JTextField textField;
 
 	public void BuyAndSell() {
