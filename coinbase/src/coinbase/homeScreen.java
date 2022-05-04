@@ -112,12 +112,76 @@ public class homeScreen extends JFrame {
                 System.out.println(id.get("id"));
                 String id2 = (String) id.get("id");
                 
-                JTextField BitcoinTF = new JTextField(id2);
-                BitcoinTF.setBounds(10, 70, 70, 50);
-                BitcoinTF.setBackground(Color.WHITE);
-                panel_3.add(BitcoinTF);
+                JTextField BitcoinNameTF = new JTextField(id2);
+                BitcoinNameTF.setBounds(10, 70, 70, 50);
+                BitcoinNameTF.setBackground(Color.WHITE);
+                panel_3.add(BitcoinNameTF);
                 System.out.println(id2);
-                BitcoinTF.setEditable(false);
+                BitcoinNameTF.setEditable(false);
+                BitcoinNameTF.setBorder(null);
+
+                
+                JSONObject current_price = (JSONObject) obj.get(0);
+                System.out.println(current_price.get("current_price"));
+                long cp2 = (long) current_price.get("current_price");
+                String cp3 = String.valueOf(cp2);
+                		
+                JTextField BitcoinCPTF = new JTextField(cp3);
+                BitcoinCPTF.setBounds(90, 70, 70, 50);
+                BitcoinCPTF.setBackground(Color.WHITE);
+                panel_3.add(BitcoinCPTF);
+                System.out.println(cp2);
+                BitcoinCPTF.setEditable(false);
+                BitcoinCPTF.setBorder(null);
+
+                
+                
+                JSONObject price_change_24h = (JSONObject) obj.get(0);
+                System.out.println(price_change_24h.get("price_change_24h"));
+                double price_change_24h2 = (double) price_change_24h.get("price_change_24h");
+                String pc3 = String.valueOf(price_change_24h2);
+                
+                JTextField BitcoinPriceTF = new JTextField(pc3);
+                BitcoinPriceTF.setBounds(180, 70, 70, 50);
+                BitcoinPriceTF.setBackground(Color.WHITE);
+                panel_3.add(BitcoinPriceTF);
+                System.out.println(price_change_24h2);
+                BitcoinPriceTF.setEditable(false);
+                BitcoinPriceTF.setBorder(null);
+
+
+
+                JSONObject total_volume = (JSONObject) obj.get(0);
+                System.out.println(total_volume.get("total_volume"));
+                long total_volume2 = (long) total_volume.get("total_volume");
+                String tv3 = String.valueOf(total_volume2);
+
+                
+                JTextField BitcoinVolTF = new JTextField(tv3);
+                BitcoinVolTF.setBounds(320, 70, 100, 50);
+                BitcoinVolTF.setBackground(Color.WHITE);
+                panel_3.add(BitcoinVolTF);
+                System.out.println(total_volume2);
+                BitcoinVolTF.setEditable(false);
+                BitcoinVolTF.setBorder(null);
+
+
+                
+                JSONObject market_cap = (JSONObject) obj.get(0);
+                System.out.println(market_cap.get("market_cap"));
+                long market_cap2 = (long) market_cap.get("market_cap");
+                String mc3 = String.valueOf(market_cap2);
+
+                
+                JTextField BitcoinMCTF = new JTextField(mc3);
+                BitcoinMCTF.setBounds(480, 70, 100, 50);
+                BitcoinMCTF.setBackground(Color.WHITE);
+                panel_3.add(BitcoinMCTF);
+                System.out.println(market_cap2);
+                BitcoinMCTF.setEditable(false);
+                BitcoinMCTF.setBorder(null);
+
+
 
      
             }
