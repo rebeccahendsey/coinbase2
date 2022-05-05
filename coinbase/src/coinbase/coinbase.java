@@ -238,9 +238,9 @@ public class coinbase extends JFrame
                                 "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI",
                                 "VA", "WA", "WV", "WI", "WY"};
             @SuppressWarnings({ "unchecked", "rawtypes" })
-                JComboBox stateF = new JComboBox(state);
+            JComboBox stateF = new JComboBox(state);
             stateF.setBounds(650, 430, 200, 30);
-                contentPane.add(stateF);
+            contentPane.add(stateF);
 
             // State label
             JLabel stateL = new JLabel("State");
