@@ -120,7 +120,7 @@ public class homeScreen extends JFrame {
                 // Get id from API 
 
                 JSONObject id = (JSONObject) obj.get(0);
-                System.out.println(id.get("id"));
+                //System.out.println(id.get("id"));
                 String id2 = (String) id.get("id");
                 
                 // Put id into GUI TextField
@@ -129,14 +129,14 @@ public class homeScreen extends JFrame {
                 BitcoinNameTF.setBounds(10, 70, 70, 50);
                 BitcoinNameTF.setBackground(Color.WHITE);
                 panel_3.add(BitcoinNameTF);
-                System.out.println(id2);
+                //System.out.println(id2);
                 BitcoinNameTF.setEditable(false);
                 BitcoinNameTF.setBorder(null);
 
                 // Get current_price from API 
 
                 JSONObject current_price = (JSONObject) obj.get(0);
-                System.out.println(current_price.get("current_price"));
+                //System.out.println(current_price.get("current_price"));
                 long cp2 = (long) current_price.get("current_price");
                 String cp3 = String.valueOf(cp2);
                 
@@ -146,7 +146,7 @@ public class homeScreen extends JFrame {
                 BitcoinCPTF.setBounds(90, 70, 70, 50);
                 BitcoinCPTF.setBackground(Color.WHITE);
                 panel_3.add(BitcoinCPTF);
-                System.out.println(cp2);
+                //System.out.println(cp2);
                 BitcoinCPTF.setEditable(false);
                 BitcoinCPTF.setBorder(null);
 
@@ -154,7 +154,7 @@ public class homeScreen extends JFrame {
                 // Get price_change_24h from API 
 
                 JSONObject price_change_24h = (JSONObject) obj.get(0);
-                System.out.println(price_change_24h.get("price_change_24h"));
+                //System.out.println(price_change_24h.get("price_change_24h"));
                 double price_change_24h2 = (double) price_change_24h.get("price_change_24h");
                 String pc3 = String.valueOf(price_change_24h2);
                 
@@ -164,7 +164,7 @@ public class homeScreen extends JFrame {
                 BitcoinPriceTF.setBounds(180, 70, 70, 50);
                 BitcoinPriceTF.setBackground(Color.WHITE);
                 panel_3.add(BitcoinPriceTF);
-                System.out.println(price_change_24h2);
+                //System.out.println(price_change_24h2);
                 BitcoinPriceTF.setEditable(false);
                 BitcoinPriceTF.setBorder(null);
 
@@ -172,7 +172,7 @@ public class homeScreen extends JFrame {
                 // Get total_volume from API 
 
                 JSONObject total_volume = (JSONObject) obj.get(0);
-                System.out.println(total_volume.get("total_volume"));
+                //System.out.println(total_volume.get("total_volume"));
                 long total_volume2 = (long) total_volume.get("total_volume");
                 String tv3 = String.valueOf(total_volume2);
         
@@ -182,7 +182,7 @@ public class homeScreen extends JFrame {
                 BitcoinVolTF.setBounds(320, 70, 100, 50);
                 BitcoinVolTF.setBackground(Color.WHITE);
                 panel_3.add(BitcoinVolTF);
-                System.out.println(total_volume2);
+                //System.out.println(total_volume2);
                 BitcoinVolTF.setEditable(false);
                 BitcoinVolTF.setBorder(null);
 
@@ -190,7 +190,7 @@ public class homeScreen extends JFrame {
                 // Get market_cap from API 
                 
                 JSONObject market_cap = (JSONObject) obj.get(0);
-                System.out.println(market_cap.get("market_cap"));
+                //System.out.println(market_cap.get("market_cap"));
                 long market_cap2 = (long) market_cap.get("market_cap");
                 String mc3 = String.valueOf(market_cap2);
 
@@ -200,12 +200,289 @@ public class homeScreen extends JFrame {
                 BitcoinMCTF.setBounds(480, 70, 100, 50);
                 BitcoinMCTF.setBackground(Color.WHITE);
                 panel_3.add(BitcoinMCTF);
-                System.out.println(market_cap2);
+                //System.out.println(market_cap2);
                 BitcoinMCTF.setEditable(false);
                 BitcoinMCTF.setBorder(null);
+                
+                
+                /**
+            	 * ETHEREUM
+            	 * 
+            	 */
+                
+                // Get id from API 
+
+                JSONObject idEthereum = (JSONObject) obj.get(1);
+                //System.out.println(idEthereum.get("id"));
+                String idEthereum2 = (String) idEthereum.get("id");
+                
+                // Put id into GUI TextField
+                
+                JTextField ethereumNameTF = new JTextField(idEthereum2);
+                ethereumNameTF.setBounds(10, 120, 70, 50);
+                ethereumNameTF.setBackground(Color.WHITE);
+                panel_3.add(ethereumNameTF);
+                //System.out.println(id2);
+                ethereumNameTF.setEditable(false);
+                ethereumNameTF.setBorder(null);
+                
+                // Get current_price from API 
+
+                JSONObject current_priceETH = (JSONObject) obj.get(1);
+                //System.out.println(current_priceETH.get("current_price"));
+                double current_priceETH2 = (double) current_priceETH.get("current_price");
+                String current_priceETH3 = String.valueOf(current_priceETH2);
+                
+                // Put current_price into GUI TextField
+                		
+                JTextField EthCPTF = new JTextField(current_priceETH3);
+                EthCPTF.setBounds(90, 120, 70, 50);
+                EthCPTF.setBackground(Color.WHITE);
+                panel_3.add(EthCPTF);
+                //System.out.println(current_priceETH2);
+                EthCPTF.setEditable(false);
+                EthCPTF.setBorder(null);
+
+                
+                // Get price_change_24h from API 
+
+                JSONObject price_change_24hETH = (JSONObject) obj.get(1);
+                //System.out.println(price_change_24hETH.get("price_change_24h"));
+                double price_change_24hETH2 = (double) price_change_24hETH.get("price_change_24h");
+                String price_change_24hETH2_3 = String.valueOf(price_change_24hETH2);
+                
+                // Put price_change_24h into GUI TextField
+
+                JTextField ETHPriceTF = new JTextField(price_change_24hETH2_3);
+                ETHPriceTF.setBounds(180, 120, 70, 50);
+                ETHPriceTF.setBackground(Color.WHITE);
+                panel_3.add(ETHPriceTF);
+                //System.out.println(price_change_24hETH2);
+                ETHPriceTF.setEditable(false);
+                ETHPriceTF.setBorder(null);
 
 
-     
+                // Get total_volume from API 
+
+                JSONObject total_volumeETH = (JSONObject) obj.get(1);
+                //System.out.println(total_volumeETH.get("total_volume"));
+                long total_volumeETH2 = (long) total_volumeETH.get("total_volume");
+                String total_volumeETH2_3 = String.valueOf(total_volumeETH2);
+        
+                // Put total_volume into GUI TextField
+
+                JTextField ethVolTF = new JTextField(total_volumeETH2_3);
+                ethVolTF.setBounds(320, 120, 100, 50);
+                ethVolTF.setBackground(Color.WHITE);
+                panel_3.add(ethVolTF);
+                //System.out.println(total_volumeETH2);
+                ethVolTF.setEditable(false);
+                ethVolTF.setBorder(null);
+
+
+                // Get market_cap from API 
+                
+                JSONObject market_capETH = (JSONObject) obj.get(1);
+                //System.out.println(market_capETH.get("market_cap"));
+                long market_capETH2 = (long) market_capETH.get("market_cap");
+                String market_capETH2_3 = String.valueOf(market_capETH2);
+
+                // Put market_cap into GUI TextField
+
+                JTextField ETHMCTF = new JTextField(market_capETH2_3);
+                ETHMCTF.setBounds(480, 120, 100, 50);
+                ETHMCTF.setBackground(Color.WHITE);
+                panel_3.add(ETHMCTF);
+                //System.out.println(market_capETH2);
+                ETHMCTF.setEditable(false);
+                ETHMCTF.setBorder(null);
+
+                
+                /**
+            	 * DOGECOIN
+            	 * 
+            	 */
+                
+                // Get id from API 
+
+                JSONObject idDogecoin = (JSONObject) obj.get(12);
+                //System.out.println(idDogecoin.get("id"));
+                String idDogecoin2 = (String) idDogecoin.get("id");
+                
+                // Put id into GUI TextField
+                
+                JTextField dogecoinNameTF = new JTextField(idDogecoin2);
+                dogecoinNameTF.setBounds(10, 170, 70, 50);
+                dogecoinNameTF.setBackground(Color.WHITE);
+                panel_3.add(dogecoinNameTF);
+                //System.out.println(idDogecoin2);
+                dogecoinNameTF.setEditable(false);
+                dogecoinNameTF.setBorder(null);
+                
+                // Get current_price from API 
+
+                JSONObject current_priceDOG = (JSONObject) obj.get(12);
+                //System.out.println(current_priceDOG.get("current_price"));
+                double current_priceDOG2 = (double) current_priceDOG.get("current_price");
+                String current_priceDOG3 = String.valueOf(current_priceDOG2);
+                
+                // Put current_price into GUI TextField
+                		
+                JTextField dogCPTF = new JTextField(current_priceDOG3);
+                dogCPTF.setBounds(90, 170, 70, 50);
+                dogCPTF.setBackground(Color.WHITE);
+                panel_3.add(dogCPTF);
+                //System.out.println(current_priceDOG2);
+                dogCPTF.setEditable(false);
+                dogCPTF.setBorder(null);
+
+                
+                // Get price_change_24h from API 
+
+                JSONObject price_change_24hDOG = (JSONObject) obj.get(12);
+                //System.out.println(price_change_24hDOG.get("price_change_24h"));
+                double price_change_24hDOG2 = (double) price_change_24hDOG.get("price_change_24h");
+                String price_change_24hDOG2_3 = String.valueOf(price_change_24hDOG2);
+
+                  
+                // Put price_change_24h into GUI TextField
+
+                JTextField DOGPriceTF = new JTextField(price_change_24hDOG2_3);
+                DOGPriceTF.setBounds(180, 170, 70, 50);
+                DOGPriceTF.setBackground(Color.WHITE);
+                panel_3.add(DOGPriceTF);
+                System.out.println(price_change_24hDOG2);
+                DOGPriceTF.setEditable(false);
+                DOGPriceTF.setBorder(null);
+
+                // Get total_volume from API 
+
+                JSONObject total_volumeDOG = (JSONObject) obj.get(12);
+                //System.out.println(total_volumeDOG.get("total_volume"));
+                long total_volumeDOG2 = (long) total_volumeDOG.get("total_volume");
+                String total_volumeDOG2_3 = String.valueOf(total_volumeDOG2);
+        
+                // Put total_volume into GUI TextField
+
+                JTextField dogVolTF = new JTextField(total_volumeDOG2_3);
+                dogVolTF.setBounds(320, 170, 100, 50);
+                dogVolTF.setBackground(Color.WHITE);
+                panel_3.add(dogVolTF);
+                //System.out.println(total_volumeDOG2);
+                dogVolTF.setEditable(false);
+                dogVolTF.setBorder(null);
+
+
+                // Get market_cap from API 
+                
+                JSONObject market_capDOG = (JSONObject) obj.get(12);
+                //System.out.println(market_capDOG.get("market_cap"));
+                long market_capDOG2 = (long) market_capDOG.get("market_cap");
+                String market_capDOG_3 = String.valueOf(market_capDOG2);
+
+                // Put market_cap into GUI TextField
+
+                JTextField DOGMCTF = new JTextField(market_capDOG_3);
+                DOGMCTF.setBounds(480, 170, 100, 50);
+                DOGMCTF.setBackground(Color.WHITE);
+                panel_3.add(DOGMCTF);
+                //System.out.println(market_capDOG2);
+                DOGMCTF.setEditable(false);
+                DOGMCTF.setBorder(null);
+                
+                
+                /**
+            	 * LITECOIN
+            	 * 
+            	 */
+                
+                // Get id from API 
+
+                JSONObject idLitecoin = (JSONObject) obj.get(24);
+                //System.out.println(idEthereum.get("id"));
+                String idLitecoin2 = (String) idLitecoin.get("id");
+                
+                // Put id into GUI TextField
+                
+                JTextField litecoinNameTF = new JTextField(idLitecoin2);
+                litecoinNameTF.setBounds(10, 220, 70, 50);
+                litecoinNameTF.setBackground(Color.WHITE);
+                panel_3.add(litecoinNameTF);
+                //System.out.println(id2);
+                litecoinNameTF.setEditable(false);
+                litecoinNameTF.setBorder(null);
+                
+                // Get current_price from API 
+
+                JSONObject current_priceLITE = (JSONObject) obj.get(24);
+                //System.out.println(current_priceETH.get("current_price"));
+                double current_priceLITE2 = (double) current_priceLITE.get("current_price");
+                String current_priceLITE3 = String.valueOf(current_priceLITE2);
+                
+                // Put current_price into GUI TextField
+                		
+                JTextField liteCPTF = new JTextField(current_priceLITE3);
+                liteCPTF.setBounds(90, 220, 70, 50);
+                liteCPTF.setBackground(Color.WHITE);
+                panel_3.add(liteCPTF);
+                //System.out.println(current_priceETH2);
+                liteCPTF.setEditable(false);
+                liteCPTF.setBorder(null);
+
+                
+                // Get price_change_24h from API 
+
+                JSONObject price_change_24hLITE = (JSONObject) obj.get(24);
+                //System.out.println(price_change_24hETH.get("price_change_24h"));
+                double price_change_24hLITE2 = (double) price_change_24hLITE.get("price_change_24h");
+                String price_change_24hLITE2_3 = String.valueOf(price_change_24hLITE2);
+                
+                // Put price_change_24h into GUI TextField
+
+                JTextField LITEPriceTF = new JTextField(price_change_24hLITE2_3);
+                LITEPriceTF.setBounds(180, 220, 70, 50);
+                LITEPriceTF.setBackground(Color.WHITE);
+                panel_3.add(LITEPriceTF);
+                //System.out.println(price_change_24hETH2);
+                LITEPriceTF.setEditable(false);
+                LITEPriceTF.setBorder(null);
+
+
+                // Get total_volume from API 
+
+                JSONObject total_volumeLITE = (JSONObject) obj.get(24);
+                //System.out.println(total_volumeETH.get("total_volume"));
+                long total_volumeLITE2 = (long) total_volumeLITE.get("total_volume");
+                String total_volumeLITE2_3 = String.valueOf(total_volumeLITE2);
+        
+                // Put total_volume into GUI TextField
+
+                JTextField liteVolTF = new JTextField(total_volumeLITE2_3);
+                liteVolTF.setBounds(320, 220, 100, 50);
+                liteVolTF.setBackground(Color.WHITE);
+                panel_3.add(liteVolTF);
+                //System.out.println(total_volumeETH2);
+                liteVolTF.setEditable(false);
+                liteVolTF.setBorder(null);
+
+
+                // Get market_cap from API 
+                
+                JSONObject market_capLITE = (JSONObject) obj.get(24);
+                //System.out.println(market_capETH.get("market_cap"));
+                long market_capLITE2 = (long) market_capLITE.get("market_cap");
+                String market_capLITE2_3 = String.valueOf(market_capLITE2);
+
+                // Put market_cap into GUI TextField
+
+                JTextField liteMCTF = new JTextField(market_capLITE2_3);
+                liteMCTF.setBounds(480, 220, 100, 50);
+                liteMCTF.setBackground(Color.WHITE);
+                panel_3.add(liteMCTF);
+                //System.out.println(market_capETH2);
+                liteMCTF.setEditable(false);
+                liteMCTF.setBorder(null);
+
             }
         } catch(Exception e){
             e.printStackTrace();
@@ -329,11 +606,13 @@ public class homeScreen extends JFrame {
         contentPane.add(totalBalLabel);
         totalBalLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
         
+        // Label for watchlist
         JLabel watchlistLab_1 = new JLabel("Watchlist");
         watchlistLab_1.setFont(new Font("Tahoma", Font.PLAIN, 35));
         watchlistLab_1.setBounds(65, 354, 199, 49);
         contentPane.add(watchlistLab_1);
         
+        // Label for total balance 
         JPanel panelTotalBal_1 = new JPanel();
         panelTotalBal_1.setLayout(null);
         panelTotalBal_1.setBorder(new LineBorder(new Color(255, 255, 255), 8, true));
@@ -341,20 +620,22 @@ public class homeScreen extends JFrame {
         panelTotalBal_1.setBounds(536, 92, 436, 258);
         contentPane.add(panelTotalBal_1);
         
-        textField_1 = new JTextField();
-        textField_1.setText("$0");
-        textField_1.setFont(new Font("Lucida Grande", Font.PLAIN, 26));
-        textField_1.setEditable(false);
-        textField_1.setColumns(10);
-        textField_1.setBounds(138, 34, 174, 53);
-        panelTotalBal_1.add(textField_1);
+        // TextField that holds the current balance in USD of that particular crypto
+        JTextField currBal = new JTextField();
+        currBal.setText("$0");
+        currBal.setFont(new Font("Lucida Grande", Font.PLAIN, 26));
+        currBal.setEditable(false);
+        currBal.setColumns(10);
+        currBal.setBounds(138, 34, 174, 53);
+        panelTotalBal_1.add(currBal);
         
+        // Label for current balance 
         JLabel lblCurrentBalance = new JLabel("Current Balance:");
         lblCurrentBalance.setBounds(138, 6, 172, 27);
         panelTotalBal_1.add(lblCurrentBalance);
         lblCurrentBalance.setFont(new Font("Tahoma", Font.PLAIN, 22));
         
-        
+        // Gray background behind the current balance section 
         JPanel panel_1 = new JPanel();
         panel_1.setBackground(Color.LIGHT_GRAY);
         panel_1.setForeground(Color.LIGHT_GRAY);
@@ -362,21 +643,25 @@ public class homeScreen extends JFrame {
         panel_1.setBounds(116, 6, 220, 86);
         panelTotalBal_1.add(panel_1);
         
-        textField_2 = new JTextField();
-        textField_2.setBounds(158, 149, 144, 39);
-        panelTotalBal_1.add(textField_2);
-        textField_2.setColumns(10);
+        // Text field where user will enter the amount of USD they'd like to buy or sell 
+        JTextField amount = new JTextField();
+        amount.setBounds(158, 149, 144, 39);
+        panelTotalBal_1.add(amount);
+        amount.setColumns(10);
         
+        // Combo box for selecting the type of cryptocurrency to buy or sell  
         String crypto[] = {"Bitcoin", "Ethereum", "Dogecoin", "Litecoin"};
         JComboBox comboBox = new JComboBox(crypto);
         comboBox.setToolTipText("Select cryptocurrency");
         comboBox.setBounds(148, 110, 164, 27);
         panelTotalBal_1.add(comboBox);
         
+        // Sell button 
         JButton sellButton = new JButton("SELL");
         sellButton.setBounds(242, 198, 117, 54);
         panelTotalBal_1.add(sellButton);
         
+        // Buy button
         JButton buyButton = new JButton("BUY");
         buyButton.setBounds(80, 198, 117, 54);
         panelTotalBal_1.add(buyButton);
