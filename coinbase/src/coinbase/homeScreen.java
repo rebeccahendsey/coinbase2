@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.awt.SystemColor;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -28,6 +29,8 @@ import javax.swing.border.MatteBorder;
 public class homeScreen extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField_1;
+	private JTextField textField_2;
 
 	/**
 	 * Launch the application.
@@ -64,11 +67,8 @@ public class homeScreen extends JFrame {
         JLabel watchlistLab = new JLabel("Profile");
         watchlistLab.setBounds(722, 356, 130, 49);
         watchlistLab.setFont(new Font("Tahoma", Font.PLAIN, 29));
-        contentPane.add(watchlistLab);
-        
-        
-        
-        
+        contentPane.add(watchlistLab);       
+     
         JPanel panel_3 = new JPanel();
         panel_3.setBorder(null);
         panel_3.setBackground(Color.WHITE);
@@ -222,7 +222,7 @@ public class homeScreen extends JFrame {
    
         JPanel panel = new JPanel();
         panel.setBounds(722, 408, 250, 385);
-        panel.setBorder(new LineBorder(SystemColor.window, 6, true));
+        panel.setBorder(null);
         //panel.setBackground(UIManager.getColor("CheckBoxMenuItem.background"));
         panel.setBackground(new Color(247,247,247,255));
         contentPane.add(panel);
@@ -333,6 +333,55 @@ public class homeScreen extends JFrame {
         watchlistLab_1.setFont(new Font("Tahoma", Font.PLAIN, 35));
         watchlistLab_1.setBounds(65, 354, 199, 49);
         contentPane.add(watchlistLab_1);
+        
+        JPanel panelTotalBal_1 = new JPanel();
+        panelTotalBal_1.setLayout(null);
+        panelTotalBal_1.setBorder(new LineBorder(new Color(255, 255, 255), 8, true));
+        panelTotalBal_1.setBackground(Color.WHITE);
+        panelTotalBal_1.setBounds(536, 92, 436, 258);
+        contentPane.add(panelTotalBal_1);
+        
+        textField_1 = new JTextField();
+        textField_1.setText("$0");
+        textField_1.setFont(new Font("Lucida Grande", Font.PLAIN, 26));
+        textField_1.setEditable(false);
+        textField_1.setColumns(10);
+        textField_1.setBounds(138, 34, 174, 53);
+        panelTotalBal_1.add(textField_1);
+        
+        JLabel lblCurrentBalance = new JLabel("Current Balance:");
+        lblCurrentBalance.setBounds(138, 6, 172, 27);
+        panelTotalBal_1.add(lblCurrentBalance);
+        lblCurrentBalance.setFont(new Font("Tahoma", Font.PLAIN, 22));
+        
+        
+        JPanel panel_1 = new JPanel();
+        panel_1.setBackground(Color.LIGHT_GRAY);
+        panel_1.setForeground(Color.LIGHT_GRAY);
+        panel_1.setBorder(new LineBorder(Color.LIGHT_GRAY, 7, true));
+        panel_1.setBounds(116, 6, 220, 86);
+        panelTotalBal_1.add(panel_1);
+        
+        textField_2 = new JTextField();
+        textField_2.setBounds(158, 149, 144, 39);
+        panelTotalBal_1.add(textField_2);
+        textField_2.setColumns(10);
+        
+        String crypto[] = {"Bitcoin", "Ethereum", "Dogecoin", "Litecoin"};
+        JComboBox comboBox = new JComboBox(crypto);
+        comboBox.setToolTipText("Select cryptocurrency");
+        comboBox.setBounds(148, 110, 164, 27);
+        panelTotalBal_1.add(comboBox);
+        
+        JButton sellButton = new JButton("SELL");
+        sellButton.setBounds(242, 198, 117, 54);
+        panelTotalBal_1.add(sellButton);
+        
+        JButton buyButton = new JButton("BUY");
+        buyButton.setBounds(80, 198, 117, 54);
+        panelTotalBal_1.add(buyButton);
+        
+       
         
 	}
 }
