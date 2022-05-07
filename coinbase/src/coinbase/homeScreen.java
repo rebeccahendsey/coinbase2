@@ -35,6 +35,10 @@ public class homeScreen extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField_1;
 	private JTextField textField_2;
+    JTextField amount = new JTextField("0");
+    JTextField currBal = new JTextField();
+    Integer currBal2;
+
 
 	/**
 	 * Launch the application.
@@ -56,6 +60,7 @@ public class homeScreen extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+
 	public homeScreen() {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -625,16 +630,15 @@ public class homeScreen extends JFrame {
         contentPane.add(panelTotalBal_1);
         
         // TextField that holds the current balance in USD of that particular crypto
-        JTextField currBal = new JTextField();
-        currBal.setText("100000");
+        
+        currBal.setText("200");
 
         currBal.setFont(new Font("Lucida Grande", Font.PLAIN, 26));
         currBal.setEditable(false);
         currBal.setColumns(10);
         currBal.setBounds(138, 34, 174, 53);
         panelTotalBal_1.add(currBal);
-        String currBalText = currBal.getText();
-        Integer currBal2 = Integer.parseInt(currBalText); 
+       
 
 		//System.out.println(currBal2);
 
@@ -655,7 +659,7 @@ public class homeScreen extends JFrame {
         
         // Text field where user will enter the amount of USD they'd like to buy or sell 
         
-        JTextField amount = new JTextField("0");
+        //JTextField amount = new JTextField("0");
         amount.setBounds(158, 149, 144, 39);
         panelTotalBal_1.add(amount);
         amount.setColumns(10);
@@ -680,15 +684,8 @@ public class homeScreen extends JFrame {
         
         buyButton.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent arg0) {
-        		int amountText = Integer.parseInt(amount.getText());
-                System.out.println(amountText);
-        		Integer newBal = currBal2 - amountText;
-                String newBal2 = String.valueOf(newBal); 
-                System.out.println(newBal2);
-        		JOptionPane.showMessageDialog(null, "Thank you for your purchase!");
-        		currBal.setText(newBal2); 
-        		amount.setText("0");
-
+        		updateValue();
+        		
 
 
 
@@ -698,5 +695,21 @@ public class homeScreen extends JFrame {
         
         	 }
         });
+        
 	}
+	public void updateValue() {
+		int amountText = Integer.parseInt(amount.getText());
+        System.out.println(amountText);
+        String currBalText = currBal.getText();
+
+        Integer currBal2 = Integer.parseInt(currBalText); 
+		Integer newBal = currBal2 - amountText;
+        String newBal2 = String.valueOf(newBal); 
+        System.out.println(newBal2);
+		JOptionPane.showMessageDialog(null, "Thank you for your purchase!");
+		currBal.setText(newBal2); 
+		amount.setText("0");
+
+	}
+	
 }
