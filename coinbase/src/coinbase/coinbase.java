@@ -231,6 +231,36 @@ public class coinbase extends JFrame
             btnNewButton_2.setBackground(Color.BLUE);
             btnNewButton_2.setBounds(650, 550, 200, 30);
             contentPane.add(btnNewButton_2);
+            btnNewButton_2.addActionListener(new ActionListener(){
+            
+            public void actionPerformed(ActionEvent arg0)
+            {
+                String emailFieldStr2 = EmailTA2.getText();
+                emailFieldStr2        = emailFieldStr2.trim();
+                if (emailFieldStr2 == "" || emailFieldStr2 == null || emailFieldStr2.length() == 0)
+                {
+                    JOptionPane.showMessageDialog(null,
+                                    "Please enter a valid email address.");
+                    
+                    return;
+                }
+                String dataStr = null;
+                dataStr="User : " + emailFieldStr2;
+     
+                fileIO fio = new fileIO("users.txt");
+                fio.wrTransactionData(dataStr);
+                
+                contentPane.setVisible(false); 
+                
+                homeScreen bs; // Reference to the class BuyAndSell
+                bs = new homeScreen(); // Creates the object of class BuyAndSell
+                bs.setVisible(true);
+                
+            }
+            });
+            contentPane.add(btnNewButton_2);
+      
+
 
             // State text field
 
@@ -327,13 +357,13 @@ public class coinbase extends JFrame
                 panel_1.setBounds(589, 136, 322, 482);
                 contentPane.add(panel_1);
                 
-                            // Create account label
-                            JTextField header_SU = new JTextField("Create your account today");
-                            panel_1.add(header_SU);
-                            header_SU.setOpaque(false);
-                            header_SU.setEditable(false);
-                            header_SU.setFont(new Font("Tahoma", Font.PLAIN, 22));
-                            header_SU.setBorder(null);
+              // Create account label
+              JTextField header_SU = new JTextField("Create your account today");
+              panel_1.add(header_SU);
+              header_SU.setOpaque(false);
+              header_SU.setEditable(false);
+              header_SU.setFont(new Font("Tahoma", Font.PLAIN, 22));
+              header_SU.setBorder(null);
                             
                             JLabel logoLabel = new JLabel("");
                             Image img = new ImageIcon(this.getClass().getResource("/Coinbase.png")).getImage();
