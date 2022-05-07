@@ -6,11 +6,15 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -622,13 +626,19 @@ public class homeScreen extends JFrame {
         
         // TextField that holds the current balance in USD of that particular crypto
         JTextField currBal = new JTextField();
-        currBal.setText("$0");
+        currBal.setText("100000");
+
         currBal.setFont(new Font("Lucida Grande", Font.PLAIN, 26));
         currBal.setEditable(false);
         currBal.setColumns(10);
         currBal.setBounds(138, 34, 174, 53);
         panelTotalBal_1.add(currBal);
-        
+        String currBalText = currBal.getText();
+        Integer currBal2 = Integer.parseInt(currBalText); 
+
+		//System.out.println(currBal2);
+
+
         // Label for current balance 
         JLabel lblCurrentBalance = new JLabel("Current Balance:");
         lblCurrentBalance.setBounds(138, 6, 172, 27);
@@ -644,10 +654,12 @@ public class homeScreen extends JFrame {
         panelTotalBal_1.add(panel_1);
         
         // Text field where user will enter the amount of USD they'd like to buy or sell 
-        JTextField amount = new JTextField();
+        
+        JTextField amount = new JTextField("0");
         amount.setBounds(158, 149, 144, 39);
         panelTotalBal_1.add(amount);
         amount.setColumns(10);
+        
         
         // Combo box for selecting the type of cryptocurrency to buy or sell  
         String crypto[] = {"Bitcoin", "Ethereum", "Dogecoin", "Litecoin"};
@@ -666,7 +678,25 @@ public class homeScreen extends JFrame {
         buyButton.setBounds(80, 198, 117, 54);
         panelTotalBal_1.add(buyButton);
         
+        buyButton.addActionListener(new ActionListener(){
+        	public void actionPerformed(ActionEvent arg0) {
+        		int amountText = Integer.parseInt(amount.getText());
+                System.out.println(amountText);
+        		Integer newBal = currBal2 - amountText;
+                String newBal2 = String.valueOf(newBal); 
+                System.out.println(newBal2);
+        		JOptionPane.showMessageDialog(null, "Thank you for your purchase!");
+        		currBal.setText(newBal2); 
+        		amount.setText("0");
+
+
+
+
+
+        		
        
         
+        	 }
+        });
 	}
 }
