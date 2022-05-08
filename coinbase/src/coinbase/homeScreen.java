@@ -35,9 +35,22 @@ public class homeScreen extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField_1;
 	private JTextField textField_2;
+	
     JTextField amount = new JTextField("0");
     JTextField currBal = new JTextField();
     Integer currBal2;
+    
+    String crypto[] = {"Bitcoin", "Ethereum", "Dogecoin", "Litecoin"};
+    JComboBox comboBox = new JComboBox(crypto);
+    private JTextField textField_3;
+    
+    JTextField bitcoinProfileValue;
+    
+    String newBal2;
+    
+    int amountText;
+    int value = 0;
+
 
 
 	/**
@@ -552,6 +565,11 @@ public class homeScreen extends JFrame {
         lblNewLabel_1_2.setBounds(24, 6, 39, 24);
         panel.add(lblNewLabel_1_2);
         
+        bitcoinProfileValue = new JTextField();
+        bitcoinProfileValue.setBounds(148, 50, 72, 26);
+        panel.add(bitcoinProfileValue);
+        bitcoinProfileValue.setColumns(10);
+        
         // Some more labels 
         
         JLabel welcomeLabel = new JLabel("Welcome");
@@ -666,11 +684,10 @@ public class homeScreen extends JFrame {
         
         
         // Combo box for selecting the type of cryptocurrency to buy or sell  
-        String crypto[] = {"Bitcoin", "Ethereum", "Dogecoin", "Litecoin"};
-        JComboBox comboBox = new JComboBox(crypto);
         comboBox.setToolTipText("Select cryptocurrency");
         comboBox.setBounds(148, 110, 164, 27);
         panelTotalBal_1.add(comboBox);
+       
         
         // Sell button 
         JButton sellButton = new JButton("SELL");
@@ -679,7 +696,7 @@ public class homeScreen extends JFrame {
         
         sellButton.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent arg0) {
-        		updateValueSell();        
+        		updateCBSell();        
         	 }
         });
         
@@ -690,13 +707,14 @@ public class homeScreen extends JFrame {
         
         buyButton.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent arg0) {
-        		updateValueBuy();        
+        		updateCBBuy();  
+        		updateValue();
         	 }
         });
         
 	}
-	public void updateValueBuy() {
-		int amountText = Integer.parseInt(amount.getText());
+	public void updateCBBuy() {
+		amountText = Integer.parseInt(amount.getText());
         //System.out.println(amountText);
         String currBalText = currBal.getText();
 
@@ -710,16 +728,36 @@ public class homeScreen extends JFrame {
 
 	}
 	
-	public void updateValueSell() {
-		int amountText = Integer.parseInt(amount.getText());
+	public void updateCBSell() {
+		amountText = Integer.parseInt(amount.getText());
         String currBalText = currBal.getText();
 
         Integer currBal2 = Integer.parseInt(currBalText); 
 		Integer newBal = currBal2 + amountText;
-        String newBal2 = String.valueOf(newBal); 
-        //System.out.println(newBal2);
-		JOptionPane.showMessageDialog(null, "Thank you for your purchase!");
+        newBal2 = String.valueOf(newBal); 
+        System.out.println(newBal2);
+		JOptionPane.showMessageDialog(null, "Sale complete!");
 		currBal.setText(newBal2); 
 		amount.setText("0");
+	}
+	
+	public void updateValue() {
+		 String getCryptoChoice = (String)comboBox.getSelectedItem();
+	     String cryptoChoice = comboBox.getSelectedItem().toString(); 
+          
+         Integer newVal = value + amountText;
+         //String.valueOf(amountText); 
+         String newVal2 = String.valueOf(newVal);
+          
+	     // System.out.println(cryptoChoice);
+	     
+	     if(cryptoChoice == "Bitcoin") {
+	    	 bitcoinProfileValue.setText(newVal2);
+	    	 value = newVal;
+	
+
+	     }
+	     
+		
 	}
 }
