@@ -49,7 +49,14 @@ public class homeScreen extends JFrame {
     String newBal2;
     
     int amountText;
-    int value = 0;
+    int valueBit = 0;
+    int valueEth = 0;
+    int valueDog = 0;
+    int valueLite = 0;
+
+    private JTextField liteProfileValue;
+    private JTextField dogProfileValue;
+    private JTextField ethProfileValue;
 
 
 
@@ -570,6 +577,21 @@ public class homeScreen extends JFrame {
         panel.add(bitcoinProfileValue);
         bitcoinProfileValue.setColumns(10);
         
+        ethProfileValue = new JTextField();
+        ethProfileValue.setColumns(10);
+        ethProfileValue.setBounds(148, 128, 72, 26);
+        panel.add(ethProfileValue);
+        
+        dogProfileValue = new JTextField();
+        dogProfileValue.setColumns(10);
+        dogProfileValue.setBounds(148, 214, 72, 26);
+        panel.add(dogProfileValue);
+        
+        liteProfileValue = new JTextField();
+        liteProfileValue.setColumns(10);
+        liteProfileValue.setBounds(148, 308, 72, 26);
+        panel.add(liteProfileValue);
+        
         // Some more labels 
         
         JLabel welcomeLabel = new JLabel("Welcome");
@@ -696,7 +718,8 @@ public class homeScreen extends JFrame {
         
         sellButton.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent arg0) {
-        		updateCBSell();        
+        		updateCBSell();  
+        		updateValueSell();
         	 }
         });
         
@@ -708,7 +731,7 @@ public class homeScreen extends JFrame {
         buyButton.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent arg0) {
         		updateCBBuy();  
-        		updateValue();
+        		updateValueBuy();
         	 }
         });
         
@@ -741,23 +764,79 @@ public class homeScreen extends JFrame {
 		amount.setText("0");
 	}
 	
-	public void updateValue() {
-		 String getCryptoChoice = (String)comboBox.getSelectedItem();
+	public void updateValueBuy() {
+		 //String getCryptoChoice = (String)comboBox.getSelectedItem();
 	     String cryptoChoice = comboBox.getSelectedItem().toString(); 
           
-         Integer newVal = value + amountText;
-         //String.valueOf(amountText); 
-         String newVal2 = String.valueOf(newVal);
+         
           
 	     // System.out.println(cryptoChoice);
 	     
 	     if(cryptoChoice == "Bitcoin") {
+	    	 Integer newValbit = valueBit + amountText;
+	         //String.valueOf(amountText); 
+	         String newVal2 = String.valueOf(newValbit);
 	    	 bitcoinProfileValue.setText(newVal2);
-	    	 value = newVal;
-	
-
+	    	 valueBit = newValbit;
+	     }
+	     if(cryptoChoice == "Ethereum") {
+	    	 Integer newValEth = valueEth + amountText;
+	         //String.valueOf(amountText); 
+	         String newVal2 = String.valueOf(newValEth);
+	    	 ethProfileValue.setText(newVal2);
+	    	 valueEth = newValEth;
+	     }
+	     if(cryptoChoice == "Dogecoin") {
+	    	 Integer newVal = valueDog + amountText;
+	         //String.valueOf(amountText); 
+	         String newVal2 = String.valueOf(newVal);
+	    	 dogProfileValue.setText(newVal2);
+	    	 valueDog = newVal;
+	     }
+	     if(cryptoChoice == "Litecoin") {
+	    	 Integer newVal = valueLite + amountText;
+	         //String.valueOf(amountText); 
+	         String newVal2 = String.valueOf(newVal);
+	    	 liteProfileValue.setText(newVal2);
+	    	 valueLite = newVal;
 	     }
 	     
+	}
+	public void updateValueSell() {
+		
+		//String getCryptoChoice = (String)comboBox.getSelectedItem();
+	    String cryptoChoice = comboBox.getSelectedItem().toString(); 
+  
+	     // System.out.println(cryptoChoice);
+	     
+	     if(cryptoChoice == "Bitcoin") {
+	    	 Integer newVal = valueBit - amountText;
+	         //String.valueOf(amountText); 
+	         String newVal2 = String.valueOf(newVal);
+	    	 bitcoinProfileValue.setText(newVal2);
+	    	 valueBit = newVal;
+	     }
+	     if(cryptoChoice == "Ethereum") {
+	    	 Integer newVal = valueEth - amountText;
+	         //String.valueOf(amountText); 
+	         String newVal2 = String.valueOf(newVal);
+	         ethProfileValue.setText(newVal2);
+	    	 valueEth = newVal;
+	     }
+	     if(cryptoChoice == "Dogecoin") {
+	    	 Integer newVal = valueDog - amountText;
+	         //String.valueOf(amountText); 
+	         String newVal2 = String.valueOf(newVal);
+	    	 dogProfileValue.setText(newVal2);
+	    	 valueDog = newVal;
+	     }
+	     if(cryptoChoice == "Litecoin") {
+	    	 Integer newVal = valueLite - amountText;
+	         //String.valueOf(amountText); 
+	         String newVal2 = String.valueOf(newVal);
+	    	 liteProfileValue.setText(newVal2);
+	    	 valueLite = newVal;
+	     }
 		
 	}
 }
