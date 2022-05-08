@@ -29,6 +29,7 @@ import org.json.simple.JSONAware;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import javax.swing.border.MatteBorder;
+import javax.swing.UIManager;
 
 public class homeScreen extends JFrame {
 
@@ -57,7 +58,27 @@ public class homeScreen extends JFrame {
     private JTextField liteProfileValue;
     private JTextField dogProfileValue;
     private JTextField ethProfileValue;
+    private JTextField textField_4;
 
+    JTextField bitQuan;
+    JTextField liteQuan;
+    JTextField dogQuan;
+    JTextField ethQuan;
+
+    
+    long cp2; 
+    double current_priceETH2;
+    double current_priceDOG2;
+    double current_priceLITE2;
+    private JTextField textField_5;
+    private JTextField textField_6;
+    private JTextField textField_7;
+    private JTextField bitLab;
+    private JTextField ethLab;
+    private JTextField dogLab;
+    private JTextField liteLab;
+    
+    JTextField textField;
 
 
 	/**
@@ -166,7 +187,7 @@ public class homeScreen extends JFrame {
 
                 JSONObject current_price = (JSONObject) obj.get(0);
                 //System.out.println(current_price.get("current_price"));
-                long cp2 = (long) current_price.get("current_price");
+                cp2 = (long) current_price.get("current_price");
                 String cp3 = String.valueOf(cp2);
                 
                 // Put current_price into GUI TextField
@@ -259,7 +280,7 @@ public class homeScreen extends JFrame {
 
                 JSONObject current_priceETH = (JSONObject) obj.get(1);
                 //System.out.println(current_priceETH.get("current_price"));
-                double current_priceETH2 = (double) current_priceETH.get("current_price");
+                current_priceETH2 = (double) current_priceETH.get("current_price");
                 String current_priceETH3 = String.valueOf(current_priceETH2);
                 
                 // Put current_price into GUI TextField
@@ -352,7 +373,7 @@ public class homeScreen extends JFrame {
 
                 JSONObject current_priceDOG = (JSONObject) obj.get(11);
                 //System.out.println(current_priceDOG.get("current_price"));
-                double current_priceDOG2 = (double) current_priceDOG.get("current_price");
+                current_priceDOG2 = (double) current_priceDOG.get("current_price");
                 String current_priceDOG3 = String.valueOf(current_priceDOG2);
                 
                 // Put current_price into GUI TextField
@@ -445,7 +466,7 @@ public class homeScreen extends JFrame {
 
                 JSONObject current_priceLITE = (JSONObject) obj.get(22);
                 //System.out.println(current_priceETH.get("current_price"));
-                double current_priceLITE2 = (double) current_priceLITE.get("current_price");
+                current_priceLITE2 = (double) current_priceLITE.get("current_price");
                 String current_priceLITE3 = String.valueOf(current_priceLITE2);
                 
                 // Put current_price into GUI TextField
@@ -533,64 +554,90 @@ public class homeScreen extends JFrame {
         panel.setBackground(new Color(247,247,247,255));
         contentPane.add(panel);
         panel.setLayout(null);
-        
-        // Logos for cryptos 
-        
-        JLabel bc = new JLabel();
-        bc.setBounds(6, 50, 62, 56);
-        panel.add(bc);
         Image bitcoinimg = new ImageIcon(this.getClass().getResource("/bitcoin_PNG48_ccexpress.png")).getImage();
-        bc.setIcon(new ImageIcon(bitcoinimg));
-
-        JLabel eth = new JLabel();
-        eth.setBounds(6, 118, 62, 56);
-        panel.add(eth);
         Image ethimg = new ImageIcon(this.getClass().getResource("/ethereum.png")).getImage();
-        eth.setIcon(new ImageIcon(ethimg));
-        
-        JLabel dogecoin = new JLabel();
-        dogecoin.setBounds(6, 200, 62, 56);
-        panel.add(dogecoin);
         Image dogecoinimg = new ImageIcon(this.getClass().getResource("/Dogecoin_Logo_ccexpress.png")).getImage();
-        dogecoin.setIcon(new ImageIcon(dogecoinimg));
-        
-        JLabel litecoin = new JLabel();
-        litecoin.setBounds(6, 287, 62, 73);
-        panel.add(litecoin);
         Image litecoinimg = new ImageIcon(this.getClass().getResource("/litecoin-ltc-logo_ccexpress.png")).getImage();
-        litecoin.setIcon(new ImageIcon(litecoinimg));
         
         JLabel lblNewLabel_1 = new JLabel("Value (USD)");
-        lblNewLabel_1.setBounds(148, 6, 72, 24);
+        lblNewLabel_1.setBounds(172, 6, 72, 24);
         panel.add(lblNewLabel_1);
         
         JLabel lblNewLabel_1_1 = new JLabel("Quantity");
-        lblNewLabel_1_1.setBounds(75, 10, 61, 16);
+        lblNewLabel_1_1.setBounds(88, 10, 61, 16);
         panel.add(lblNewLabel_1_1);
         
         JLabel lblNewLabel_1_2 = new JLabel("Type");
-        lblNewLabel_1_2.setBounds(24, 6, 39, 24);
+        lblNewLabel_1_2.setBounds(6, 6, 39, 24);
         panel.add(lblNewLabel_1_2);
         
         bitcoinProfileValue = new JTextField();
-        bitcoinProfileValue.setBounds(148, 50, 72, 26);
+        bitcoinProfileValue.setBounds(172, 50, 72, 26);
         panel.add(bitcoinProfileValue);
         bitcoinProfileValue.setColumns(10);
         
         ethProfileValue = new JTextField();
         ethProfileValue.setColumns(10);
-        ethProfileValue.setBounds(148, 128, 72, 26);
+        ethProfileValue.setBounds(172, 127, 72, 26);
         panel.add(ethProfileValue);
         
         dogProfileValue = new JTextField();
         dogProfileValue.setColumns(10);
-        dogProfileValue.setBounds(148, 214, 72, 26);
+        dogProfileValue.setBounds(172, 214, 72, 26);
         panel.add(dogProfileValue);
         
         liteProfileValue = new JTextField();
         liteProfileValue.setColumns(10);
-        liteProfileValue.setBounds(148, 308, 72, 26);
+        liteProfileValue.setBounds(172, 308, 72, 26);
         panel.add(liteProfileValue);
+        
+        bitQuan = new JTextField();
+        bitQuan.setColumns(10);
+        bitQuan.setBounds(68, 50, 92, 26);
+        panel.add(bitQuan);
+        
+        ethQuan = new JTextField();
+        ethQuan.setColumns(10);
+        ethQuan.setBounds(68, 127, 92, 26);
+        panel.add(ethQuan);
+        
+        dogQuan = new JTextField();
+        dogQuan.setColumns(10);
+        dogQuan.setBounds(68, 214, 92, 26);
+        panel.add(dogQuan);
+        
+        liteQuan = new JTextField();
+        liteQuan.setColumns(10);
+        liteQuan.setBounds(68, 308, 92, 26);
+        panel.add(liteQuan);
+        
+        bitLab = new JTextField("btc");
+        bitLab.setBackground(new Color(247, 247, 247));
+        bitLab.setColumns(10);
+        bitLab.setBounds(6, 50, 57, 26);
+        bitLab.setBorder(null);
+        panel.add(bitLab);
+        
+        ethLab = new JTextField("eth");
+        ethLab.setColumns(10);
+        ethLab.setBounds(6, 127, 57, 26);
+        ethLab.setBackground(new Color(247, 247, 247));
+        ethLab.setBorder(null);
+        panel.add(ethLab);
+        
+        dogLab = new JTextField("doge");
+        dogLab.setColumns(10);
+        dogLab.setBounds(6, 214, 57, 26);
+        dogLab.setBackground(new Color(247, 247, 247));
+        dogLab.setBorder(null);
+        panel.add(dogLab);
+        
+        liteLab = new JTextField("ltc");
+        liteLab.setColumns(10);
+        liteLab.setBounds(6, 308, 57, 26);
+        liteLab.setBackground(new Color(247, 247, 247));
+        liteLab.setBorder(null);
+        panel.add(liteLab);
         
         // Some more labels 
         
@@ -640,12 +687,13 @@ public class homeScreen extends JFrame {
         
         // Place holder for value in available balance
         
-        JTextField textField = new JTextField();
+        textField = new JTextField();
         textField.setFont(new Font("Lucida Grande", Font.PLAIN, 44));
         textField.setBounds(32, 6, 263, 80);
         textField.setText("$452,891");
         textField.setEditable(false);
         panelTotalBal.add(textField);
+        textField.setText(newBal2);
         textField.setColumns(10);
         
         // Label for available balance
@@ -732,8 +780,10 @@ public class homeScreen extends JFrame {
         	public void actionPerformed(ActionEvent arg0) {
         		updateCBBuy();  
         		updateValueBuy();
+        		updateQuan();
         	 }
         });
+        
         
 	}
 	public void updateCBBuy() {
@@ -801,6 +851,7 @@ public class homeScreen extends JFrame {
 	    	 valueLite = newVal;
 	     }
 	     
+	     
 	}
 	public void updateValueSell() {
 		
@@ -837,6 +888,52 @@ public class homeScreen extends JFrame {
 	    	 liteProfileValue.setText(newVal2);
 	    	 valueLite = newVal;
 	     }
-		
+	     
+
+	     todaysBal();
 	}
+	
+	public void updateQuan() {
+		String cryptoChoice = comboBox.getSelectedItem().toString(); 
+		
+	     if(cryptoChoice == "Bitcoin") {
+	    	 float bitQuantity = (float) (valueBit / cp2); 
+	    	 String bitQuantityString = String.valueOf(bitQuantity);
+	    	 bitQuan.setText(bitQuantityString);
+	     }
+	     if(cryptoChoice == "Ethereum") {
+	    	 float ethQuantity = (float) (valueEth/ current_priceETH2); 
+	    	 String ethQuantityString = String.valueOf(ethQuantity);
+	    	 ethQuan.setText(ethQuantityString);
+	     }
+	     if(cryptoChoice == "Dogecoin") {
+	    	 float dogQuantity = (float) (valueDog / current_priceDOG2); 
+	    	 String dogQuantityString = String.valueOf(dogQuantity);
+	    	 dogQuan.setText(dogQuantityString);
+	     }
+	     if(cryptoChoice == "Litecoin") {
+	    	 float liteQuantity = (float) (valueLite / current_priceLITE2); 
+	    	 String liteQuantityString = String.valueOf(liteQuantity);
+	    	 liteQuan.setText(liteQuantityString);
+	     }
+	}
+	
+	public void todaysBal() {
+		//String bitcoinValue = String.valueOf(bitcoinProfileValue.getText());
+		//String ethValue = String.valueOf(bitcoinProfileValue.getText());
+		//String dogValue = String.valueOf(bitcoinProfileValue.getText());
+		//String liteValue = String.valueOf(bitcoinProfileValue.getText());
+		
+		int bitcoinValue = Integer.parseInt(bitcoinProfileValue.getText());
+		int ethValue = Integer.parseInt(bitcoinProfileValue.getText());
+		int dogValue = Integer.parseInt(bitcoinProfileValue.getText());
+		int liteValue = Integer.parseInt(bitcoinProfileValue.getText());
+
+		int todaysbal = bitcoinValue + ethValue + dogValue + liteValue; 
+		String todaysBalStr = String.valueOf(todaysbal);
+		textField.setText(todaysBalStr);
+
+	}
+	
+
 }
