@@ -585,25 +585,25 @@ public class homeScreen extends JFrame {
         lblNewLabel_1_2.setBounds(6, 6, 39, 24);
         panel.add(lblNewLabel_1_2);
         
-        bitcoinProfileValue = new JTextField();
+        bitcoinProfileValue = new JTextField("0");
         bitcoinProfileValue.setBounds(172, 50, 72, 26);
         bitcoinProfileValue.setEditable(false);
         panel.add(bitcoinProfileValue);
         bitcoinProfileValue.setColumns(10);
         
-        ethProfileValue = new JTextField();
+        ethProfileValue = new JTextField("0");
         ethProfileValue.setColumns(10);
         ethProfileValue.setBounds(172, 127, 72, 26);
         ethProfileValue.setEditable(false);
         panel.add(ethProfileValue);
         
-        dogProfileValue = new JTextField();
+        dogProfileValue = new JTextField("0");
         dogProfileValue.setColumns(10);
         dogProfileValue.setBounds(172, 214, 72, 26);
         dogProfileValue.setEditable(false);
         panel.add(dogProfileValue);
         
-        liteProfileValue = new JTextField();
+        liteProfileValue = new JTextField("0");
         liteProfileValue.setColumns(10);
         liteProfileValue.setBounds(172, 308, 72, 26);
         liteProfileValue.setEditable(false);
@@ -787,7 +787,7 @@ public class homeScreen extends JFrame {
         sellButton.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent arg0) {
         		updateCBSell();  
-        		updateValueSell();
+        		
         	 }
         });
         
@@ -799,39 +799,61 @@ public class homeScreen extends JFrame {
         buyButton.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent arg0) {
         		updateCBBuy();  
-        		updateValueBuy();
-        		updateQuan();
+        		
         	 }
         });
         
         
 	}
 	public void updateCBBuy() {
+		
 		amountText = Integer.parseInt(amount.getText());
         //System.out.println(amountText);
         String currBalText = currBal.getText();
+        Integer currInt = Integer.parseInt(currBal.getText());
+        
+        if(amountText > currInt) {
+    		JOptionPane.showMessageDialog(null, "Sorry, insufficient funds!");
 
-        Integer currBal2 = Integer.parseInt(currBalText); 
-		Integer newBal = currBal2 - amountText;
-        String newBal2 = String.valueOf(newBal); 
-        System.out.println(newBal2);
-		JOptionPane.showMessageDialog(null, "Thank you for your purchase!");
-		currBal.setText(newBal2); 
-		amount.setText("0");
+        }
+        else {
+        	Integer currBal2 = Integer.parseInt(currBalText); 
+        	Integer newBal = currBal2 - amountText;
+        	String newBal2 = String.valueOf(newBal); 
+        	System.out.println(newBal2);
+        	JOptionPane.showMessageDialog(null, "Thank you for your purchase!");
+        	currBal.setText(newBal2); 
+        	amount.setText("0");
+        	updateValueBuy();
+        	updateQuan();
+        }
 
 	}
 	
 	public void updateCBSell() {
+	    String cryptoChoice = comboBox.getSelectedItem().toString(); 
 		amountText = Integer.parseInt(amount.getText());
-        String currBalText = currBal.getText();
 
-        Integer currBal2 = Integer.parseInt(currBalText); 
-		Integer newBal = currBal2 + amountText;
-        newBal2 = String.valueOf(newBal); 
-        System.out.println(newBal2);
-		JOptionPane.showMessageDialog(null, "Sale complete!");
-		currBal.setText(newBal2); 
-		amount.setText("0");
+
+		String bitcoinProfileValueStr = bitcoinProfileValue.getText();
+	    Integer bitcoinProfileValueINT = Integer.parseInt(bitcoinProfileValueStr);
+		if(cryptoChoice == "Bitcoin" && (amountText > bitcoinProfileValueINT)) {
+    		JOptionPane.showMessageDialog(null, "Sorry, insufficient funds!");
+        }
+		
+		else {
+			amountText = Integer.parseInt(amount.getText());
+			String currBalText = currBal.getText();
+
+			Integer currBal2 = Integer.parseInt(currBalText); 
+			Integer newBal = currBal2 + amountText;
+			newBal2 = String.valueOf(newBal); 
+			System.out.println(newBal2);
+			JOptionPane.showMessageDialog(null, "Sale complete!");
+			currBal.setText(newBal2); 
+			amount.setText("0");
+			updateValueSell();
+		}
 	}
 	
 	public void updateValueBuy() {
