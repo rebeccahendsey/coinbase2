@@ -21,6 +21,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.net.*;
 import java.text.ParseException;
+import java.util.Date;
 import java.util.Scanner;
 import java.io.*;
 import org.json.*;
@@ -79,6 +80,7 @@ public class homeScreen extends JFrame {
     private JTextField liteLab;
     
     JTextField textField;
+    private JTextField top;
 
 
 	/**
@@ -103,6 +105,7 @@ public class homeScreen extends JFrame {
 	 */
 
 	public homeScreen() {
+		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//setBounds(100, 100, 450, 300);
@@ -133,6 +136,17 @@ public class homeScreen extends JFrame {
         panel_2.setBorder(null);
         panel_2.setBackground(Color.LIGHT_GRAY);
         panel_2.setLayout(null);
+        
+        top = new JTextField();
+        top.setBackground(SystemColor.window);
+        top.setBounds(679, 17, 293, 27);
+        contentPane.add(top);
+        top.setColumns(10);
+        top.setEditable(false);
+        top.setBorder(null);
+        
+		startRealTimeClock();
+
 		
 		try{
 			
@@ -573,41 +587,49 @@ public class homeScreen extends JFrame {
         
         bitcoinProfileValue = new JTextField();
         bitcoinProfileValue.setBounds(172, 50, 72, 26);
+        bitcoinProfileValue.setEditable(false);
         panel.add(bitcoinProfileValue);
         bitcoinProfileValue.setColumns(10);
         
         ethProfileValue = new JTextField();
         ethProfileValue.setColumns(10);
         ethProfileValue.setBounds(172, 127, 72, 26);
+        ethProfileValue.setEditable(false);
         panel.add(ethProfileValue);
         
         dogProfileValue = new JTextField();
         dogProfileValue.setColumns(10);
         dogProfileValue.setBounds(172, 214, 72, 26);
+        dogProfileValue.setEditable(false);
         panel.add(dogProfileValue);
         
         liteProfileValue = new JTextField();
         liteProfileValue.setColumns(10);
         liteProfileValue.setBounds(172, 308, 72, 26);
+        liteProfileValue.setEditable(false);
         panel.add(liteProfileValue);
         
         bitQuan = new JTextField();
         bitQuan.setColumns(10);
         bitQuan.setBounds(68, 50, 92, 26);
+        bitQuan.setEditable(false);
         panel.add(bitQuan);
         
         ethQuan = new JTextField();
         ethQuan.setColumns(10);
         ethQuan.setBounds(68, 127, 92, 26);
+        ethQuan.setEditable(false);
         panel.add(ethQuan);
         
         dogQuan = new JTextField();
         dogQuan.setColumns(10);
         dogQuan.setBounds(68, 214, 92, 26);
+        dogQuan.setEditable(false);
         panel.add(dogQuan);
         
         liteQuan = new JTextField();
         liteQuan.setColumns(10);
+        liteQuan.setEditable(false);
         liteQuan.setBounds(68, 308, 92, 26);
         panel.add(liteQuan);
         
@@ -697,7 +719,6 @@ public class homeScreen extends JFrame {
         textField.setColumns(10);
         
         // Label for available balance
-        
         JLabel totalBalLabel = new JLabel("Today's Balance:");
         totalBalLabel.setBounds(42, 103, 330, 27);
         contentPane.add(totalBalLabel);
@@ -720,7 +741,6 @@ public class homeScreen extends JFrame {
         // TextField that holds the current balance in USD of that particular crypto
         
         currBal.setText("200");
-
         currBal.setFont(new Font("Lucida Grande", Font.PLAIN, 26));
         currBal.setEditable(false);
         currBal.setColumns(10);
@@ -775,7 +795,7 @@ public class homeScreen extends JFrame {
         JButton buyButton = new JButton("BUY");
         buyButton.setBounds(80, 198, 117, 54);
         panelTotalBal_1.add(buyButton);
-        
+         
         buyButton.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent arg0) {
         		updateCBBuy();  
@@ -935,5 +955,33 @@ public class homeScreen extends JFrame {
 
 	}
 	
+	private void startRealTimeClock()
+	  {	
+		   Thread refreshClock = new Thread()
+		   {
+			  public void run()
+			  {  
+				 while (true)
+				 {	 			      
+					   Date   date = new Date();
+					   String str = String.format("\n    %tc", date);
+						 
+					   top.setText("");
+					   top.setText(str);
+					   
+				    	try
+					    {
+						   sleep(5000L);
+					    }
+					    catch (InterruptedException e)
+					   {
+						   // TODO Auto-generated catch block
+						  e.printStackTrace();
+					   }
+	             } // end while true 
+		     }
+		  };
 
+	    refreshClock.start();
+	  }
 }
