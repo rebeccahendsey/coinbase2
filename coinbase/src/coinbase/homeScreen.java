@@ -152,7 +152,7 @@ public class homeScreen extends JFrame {
 			
 			// Api usage 
 			
-            URL url = new URL("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=100&page=1&sparkline=false");
+            URL url = new URL("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=200&&order=nsort&page=1&sparkline=false");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.connect();
@@ -369,7 +369,7 @@ public class homeScreen extends JFrame {
                 
                 // Get id from API 
 
-                JSONObject idDogecoin = (JSONObject) obj.get(11);
+                JSONObject idDogecoin = (JSONObject) obj.get(10);
                 //System.out.println(idDogecoin.get("id"));
                 String idDogecoin2 = (String) idDogecoin.get("id");
                 
@@ -385,7 +385,7 @@ public class homeScreen extends JFrame {
                 
                 // Get current_price from API 
 
-                JSONObject current_priceDOG = (JSONObject) obj.get(11);
+                JSONObject current_priceDOG = (JSONObject) obj.get(10);
                 //System.out.println(current_priceDOG.get("current_price"));
                 current_priceDOG2 = (double) current_priceDOG.get("current_price");
                 String current_priceDOG3 = String.valueOf(current_priceDOG2);
@@ -403,7 +403,7 @@ public class homeScreen extends JFrame {
                 
                 // Get price_change_24h from API 
 
-                JSONObject price_change_24hDOG = (JSONObject) obj.get(11);
+                JSONObject price_change_24hDOG = (JSONObject) obj.get(10);
                 //System.out.println(price_change_24hDOG.get("price_change_24h"));
                 double price_change_24hDOG2 = (double) price_change_24hDOG.get("price_change_24h");
                 String price_change_24hDOG2_3 = String.valueOf(price_change_24hDOG2);
@@ -421,7 +421,7 @@ public class homeScreen extends JFrame {
 
                 // Get total_volume from API 
 
-                JSONObject total_volumeDOG = (JSONObject) obj.get(11);
+                JSONObject total_volumeDOG = (JSONObject) obj.get(10);
                 //System.out.println(total_volumeDOG.get("total_volume"));
                 long total_volumeDOG2 = (long) total_volumeDOG.get("total_volume");
                 String total_volumeDOG2_3 = String.valueOf(total_volumeDOG2);
@@ -439,7 +439,7 @@ public class homeScreen extends JFrame {
 
                 // Get market_cap from API 
                 
-                JSONObject market_capDOG = (JSONObject) obj.get(11);
+                JSONObject market_capDOG = (JSONObject) obj.get(10);
                 //System.out.println(market_capDOG.get("market_cap"));
                 long market_capDOG2 = (long) market_capDOG.get("market_cap");
                 String market_capDOG_3 = String.valueOf(market_capDOG2);
@@ -460,7 +460,7 @@ public class homeScreen extends JFrame {
             	 * 
             	 */
                 
-                // Get id from API 
+                // Get id from API
 
                 JSONObject idLitecoin = (JSONObject) obj.get(22);
                 System.out.println(idLitecoin.get("id"));
@@ -496,7 +496,7 @@ public class homeScreen extends JFrame {
                 
                 // Get price_change_24h from API 
 
-                JSONObject price_change_24hLITE = (JSONObject) obj.get(23);
+                JSONObject price_change_24hLITE = (JSONObject) obj.get(22);
                 //System.out.println(price_change_24hETH.get("price_change_24h"));
                 double price_change_24hLITE2 = (double) price_change_24hLITE.get("price_change_24h");
                 String price_change_24hLITE2_3 = String.valueOf(price_change_24hLITE2);
@@ -514,7 +514,7 @@ public class homeScreen extends JFrame {
 
                 // Get total_volume from API 
 
-                JSONObject total_volumeLITE = (JSONObject) obj.get(23);
+                JSONObject total_volumeLITE = (JSONObject) obj.get(22);
                 //System.out.println(total_volumeETH.get("total_volume"));
                 long total_volumeLITE2 = (long) total_volumeLITE.get("total_volume");
                 String total_volumeLITE2_3 = String.valueOf(total_volumeLITE2);
@@ -532,7 +532,7 @@ public class homeScreen extends JFrame {
 
                 // Get market_cap from API 
                 
-                JSONObject market_capLITE = (JSONObject) obj.get(23);
+                JSONObject market_capLITE = (JSONObject) obj.get(22);
                 //System.out.println(market_capETH.get("market_cap"));
                 long market_capLITE2 = (long) market_capLITE.get("market_cap");
                 String market_capLITE2_3 = String.valueOf(market_capLITE2);
