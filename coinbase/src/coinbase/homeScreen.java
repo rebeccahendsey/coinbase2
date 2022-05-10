@@ -787,6 +787,7 @@ public class homeScreen extends JFrame {
         sellButton.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent arg0) {
         		updateCBSell();  
+        		todaysBal();
         		
         	 }
         });
@@ -799,6 +800,7 @@ public class homeScreen extends JFrame {
         buyButton.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent arg0) {
         		updateCBBuy();  
+        		todaysBal();
         		
         	 }
         });
@@ -985,11 +987,12 @@ public class homeScreen extends JFrame {
 		//String liteValue = String.valueOf(bitcoinProfileValue.getText());
 		
 		int bitcoinValue = Integer.parseInt(bitcoinProfileValue.getText());
-		int ethValue = Integer.parseInt(bitcoinProfileValue.getText());
-		int dogValue = Integer.parseInt(bitcoinProfileValue.getText());
-		int liteValue = Integer.parseInt(bitcoinProfileValue.getText());
+		int ethValue = Integer.parseInt(ethProfileValue.getText());
+		int dogValue = Integer.parseInt(dogProfileValue.getText());
+		int liteValue = Integer.parseInt(liteProfileValue.getText());
 
 		int todaysbal = bitcoinValue + ethValue + dogValue + liteValue; 
+		System.out.printf("bitcoingval: ", bitcoinValue);
 		String todaysBalStr = String.valueOf(todaysbal);
 		textField.setText(todaysBalStr);
 
