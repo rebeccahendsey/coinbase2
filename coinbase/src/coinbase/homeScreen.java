@@ -837,10 +837,28 @@ public class homeScreen extends JFrame {
 
 		String bitcoinProfileValueStr = bitcoinProfileValue.getText();
 	    Integer bitcoinProfileValueINT = Integer.parseInt(bitcoinProfileValueStr);
-		if(cryptoChoice == "Bitcoin" && (amountText > bitcoinProfileValueINT)) {
+	    
+	    String ethProfileValueStr = ethProfileValue.getText();
+	    Integer ethProfileValueINT = Integer.parseInt(ethProfileValueStr);
+	    
+	    String dogProfileValueStr = dogProfileValue.getText();
+	    Integer dogProfileValueINT = Integer.parseInt(dogProfileValueStr);
+	    
+	    String liteProfileValueStr = liteProfileValue.getText();
+	    Integer liteProfileValueINT = Integer.parseInt(liteProfileValueStr);
+	    
+	    if(cryptoChoice == "Bitcoin" && (amountText > bitcoinProfileValueINT)) {
     		JOptionPane.showMessageDialog(null, "Sorry, insufficient funds!");
         }
-		
+	    else if(cryptoChoice == "Ethereum" && (amountText > ethProfileValueINT)) {
+    		JOptionPane.showMessageDialog(null, "Sorry, insufficient funds!");
+        }
+		else if(cryptoChoice == "Dogecoin" && (amountText > dogProfileValueINT)) {
+    		JOptionPane.showMessageDialog(null, "Sorry, insufficient funds!");
+        }
+		else if(cryptoChoice == "Litecoin" && (amountText > liteProfileValueINT)) {
+    		JOptionPane.showMessageDialog(null, "Sorry, insufficient funds!");
+        }
 		else {
 			amountText = Integer.parseInt(amount.getText());
 			String currBalText = currBal.getText();
