@@ -43,7 +43,7 @@ public class coinbase extends JFrame
             //Ping the server
             socketUtils sock = new socketUtils();
             sock.socketConnect();
-            sock.sendMessage("Hello....it's rebecca");
+            sock.sendMessage("Hello...");
             sock.closeSocket();
              
         }
