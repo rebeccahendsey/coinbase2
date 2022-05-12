@@ -167,7 +167,7 @@ public class socketServer implements Runnable
                  br.close();
               
                  int currentSize     = clients.size();
-         	     //sss5jsw.right.setText("Total# : " + currentSize + newline);
+         	     sss5jsw.right.setText("Total# : " + currentSize + newline);
          	    
          	     clients.put("totalKiosk", new coinbase());
      	      }
@@ -201,7 +201,7 @@ public class socketServer implements Runnable
          	     
          	     
          	     int currentSize     = clients.size();
-        	     //sss5jsw.right.setText("Total# : " + currentSize + newline);
+        	     sss5jsw.right.setText("Total# : " + currentSize + newline);
         	     
          	     clients.put("totalKiosk", new coinbase());   
      	      }
@@ -269,8 +269,8 @@ public class socketServer implements Runnable
 					long finish = System.nanoTime();
 					
 					long timeElapsed = finish - start;
-					//sss5jsw.right.append(" Time Nano-Seconds : " + timeElapsed + newline);
-					//sss5jsw.right.append("Time Milli-Seconds : " + timeElapsed / 1000000 + newline);
+					sss5jsw.right.append(" Time Nano-Seconds : " + timeElapsed + newline);
+					sss5jsw.right.append("Time Milli-Seconds : " + timeElapsed / 1000000 + newline);
 					
 					if (clients.containsKey("totalKiosk") == true)
 					{
@@ -298,8 +298,8 @@ public class socketServer implements Runnable
 					long finish = System.nanoTime();
 					
 					long timeElapsed = finish - start;
-					//sss5jsw.right.append(" Time Nano-Seconds : " + timeElapsed + newline);
-					//sss5jsw.right.append("Time Milli-Seconds : " + timeElapsed / 1000000 + newline);
+					sss5jsw.right.append(" Time Nano-Seconds : " + timeElapsed + newline);
+					sss5jsw.right.append("Time Milli-Seconds : " + timeElapsed / 1000000 + newline);
 					
 					if (clients.containsKey("totalKiosk") == true)
 					{
@@ -430,15 +430,15 @@ public class socketServer implements Runnable
 	    	    int counter = 0;
 	        	vec.addElement(keyString);
 	        	
-	        	//sss5jsw.bottom.setText("");
+	        	sss5jsw.bottom.setText("");
 	        	Enumeration<String> en = vec.elements();
 	        	while (en.hasMoreElements())
 	        	{
-	        		//sss5jsw.bottom.append(en.nextElement() + " || ");
+	        		sss5jsw.bottom.append(en.nextElement() + " || ");
 	        		
 	        		if (++counter >= 6)
 	        		{
-	        			//sss5jsw.bottom.append("\r\n");
+	        			sss5jsw.bottom.append("\r\n");
 	        			counter = 0;
 	        		}
 	        	}
@@ -532,6 +532,11 @@ public class socketServer implements Runnable
 	            		  pstream.println("NACK : ERROR : Invalid number of parameters!");
 	            	  }
 	              }
+				  else if (clientString.contains("LOGIN>"))
+	              {
+	            	  String emailData = ""; 
+	            	  sss5jsw.wrToCenterTA("IDKs = " + emailData + newline);
+	              }
 	              else if (clientString.contains("Date>"))
 	              {
 	            	numOfMessages++;
@@ -591,20 +596,20 @@ public class socketServer implements Runnable
 	        	int counter = 0;
 	        	vec.removeElement(keyString);
 	        	
-	        	//sss5jsw.bottom.setText("");
+	        	sss5jsw.bottom.setText("");
 	        	Enumeration<String> en = vec.elements();
 	        	while (en.hasMoreElements())
 	        	{        		     		
-                    //sss5jsw.bottom.append(en.nextElement() + " || ");
+                    sss5jsw.bottom.append(en.nextElement() + " || ");
 	        		
 	        		if (++counter >= 6)
 	        		{
-	        			//sss5jsw.bottom.append("\r\n");
+	        			sss5jsw.bottom.append("\r\n");
 	        			counter = 0;
 	        		}
 	        	}
 
-  	           // sss5jsw.bottom.repaint();
+  	            sss5jsw.bottom.repaint();
 	        }
 	      
 	        numOfConnections--;
@@ -654,19 +659,19 @@ public class socketServer implements Runnable
         	int counter = 0;
         	vec.removeElement(keyString);
         	
-        	//sss5jsw.bottom.setText("");
+        	sss5jsw.bottom.setText("");
         	Enumeration<String> en = vec.elements();
         	while (en.hasMoreElements())
         	{        		     		
-                //sss5jsw.bottom.append(en.nextElement() + " || ");
+                sss5jsw.bottom.append(en.nextElement() + " || ");
         		
         		if (++counter >= 6)
         		{
-        		//	sss5jsw.bottom.append("\r\n");
+        			sss5jsw.bottom.append("\r\n");
         			counter = 0;
         		}
         	}
-	           // sss5jsw.bottom.repaint();
+	            sss5jsw.bottom.repaint();
          }
       
          if (numOfConnections > 0)
