@@ -129,3 +129,86 @@
 05-10-2022 11.22.26 : User : hil
 05-10-2022 11.54.51 : User : rhendsey
 05-10-2022 13.08.11 : User : rhendsey
+05-10-2022 13.52.10 : User : lmom
+05-10-2022 15.32.42 : User : ef
+05-11-2022 15.16.58 : User : rhensdey
+05-11-2022 15.41.15 : User : ref
+05-11-2022 15.45.23 : User : kdngrsef
+05-11-2022 15.47.43 : User : rebecca
+05-11-2022 16.03.09 : User : rebecca
+05-11-2022 21.15.22 : User : rebjw
+05-11-2022 21.17.06 : User : h
+05-11-2022 21.23.03 : User : efs
+05-11-2022 21.27.07 : User : j
+05-11-2022 21.46.40 : SERVER : Hello from coinbase
+05-11-2022 21.47.08 : SERVER : Hello from coinbase
+05-11-2022 21.49.29 : SERVER : 
+05-11-2022 21.49.32 : SERVER : 
+05-11-2022 21.49.43 : User : seffes
+05-11-2022 21.50.01 : SERVER : HI
+05-11-2022 21.50.05 : SERVER : HI
+05-11-2022 21.50.07 : User : sdfs
+05-11-2022 21.51.15 : SERVER : 
+05-11-2022 21.51.16 : SERVER : 
+05-11-2022 21.53.33 : User : esf
+05-11-2022 21.53.46 : User : ef
+05-11-2022 21.53.48 : SERVER : 
+05-11-2022 21.54.46 : User : aef
+05-11-2022 21.55.18 : User : e
+05-11-2022 21.55.20 : SERVER : 
+05-11-2022 21.56.07 : User : t
+05-11-2022 21.57.48 : SERVER : ifk
+05-11-2022 21.58.45 : SERVER : emailData
+05-11-2022 21.58.47 : SERVER : emailData
+05-11-2022 21.58.54 : User : erf
+05-11-2022 21.59.26 : SERVER : 
+05-11-2022 21.59.37 : User : rewrfew
+05-12-2022 08.16.50 : User : seset
+05-12-2022 08.17.26 : SERVER : Hello from coinbase
+05-12-2022 08.18.20 : SERVER : Hello from coinbase
+05-12-2022 08.22.55 : SERVER : Hello from coinbase
+05-12-2022 08.23.11 : User : reb
+05-12-2022 08.23.12 : SERVER : reb
+05-12-2022 08.25.34 : SERVER : Hello from coinbase
+05-12-2022 08.25.46 : User : aefouhaes
+05-12-2022 08.25.48 : SERVER : becca
+05-12-2022 08.25.48 : SERVER : hendsey
+05-12-2022 08.30.28 : SERVER : Hello from coinbase
+05-12-2022 08.30.41 : User : rhendsey
+05-12-2022 08.30.42 : SERVER : rebecca
+05-12-2022 08.30.43 : SERVER : hendsey
+05-12-2022 08.30.55 : SERVER : 90
+05-12-2022 08.36.13 : SERVER : Hello from coinbase
+05-12-2022 08.36.21 : User : fe
+05-12-2022 08.36.23 : SERVER : reb
+05-12-2022 08.36.24 : SERVER : sfes
+05-12-2022 08.36.32 : SERVER : Purchased
+05-12-2022 08.36.32 : SERVER : 20
+05-12-2022 08.36.33 : SERVER : Bitcoin
+05-12-2022 08.40.00 : SERVER : Purchased
+05-12-2022 08.40.00 : SERVER : 90
+05-12-2022 08.40.01 : SERVER : Bitcoin
+05-12-2022 08.40.16 : SERVER : Purchased
+05-12-2022 08.40.17 : SERVER : 100
+05-12-2022 08.40.17 : SERVER : Dogecoin
+05-12-2022 08.40.29 : SERVER : Amount sold
+05-12-2022 08.40.29 : SERVER : 80
+05-12-2022 08.40.30 : SERVER : Dogecoin
+05-12-2022 08.40.38 : SERVER : Amount sold
+05-12-2022 08.40.39 : SERVER : 20
+05-12-2022 08.40.39 : SERVER : Dogecoin
+05-12-2022 08.45.09 : SERVER : Purchased
+05-12-2022 08.45.10 : SERVER : 90
+05-12-2022 08.45.10 : SERVER : Bitcoin
+05-12-2022 08.48.02 : SERVER : Hello from coinbase
+05-12-2022 08.48.40 : User : fs
+05-12-2022 08.49.06 : SERVER : Hello from coinbase
+05-12-2022 08.49.22 : User : rhendsey@fordham.edu
+05-12-2022 08.49.23 : SERVER : rebecca
+05-12-2022 08.49.24 : SERVER : hendsey
+05-12-2022 08.49.38 : SERVER : Purchased
+05-12-2022 08.49.38 : SERVER : 10
+05-12-2022 08.49.39 : SERVER : Litecoin
+05-12-2022 08.50.18 : SERVER : Hello from coinbase
+05-12-2022 08.50.23 : User : rebecajeafepaefijpa
+05-12-2022 08.50.25 : SERVER : rebecajeafepaefijpa

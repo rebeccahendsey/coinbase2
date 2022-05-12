@@ -466,7 +466,7 @@ public class socketServer implements Runnable
 	   	           sss5jsw.wrToCenterTA("RECV : " + clientString + newline);
 	     	       
 	     	       // update the status text area to show progress of program
-	     	       sss5jsw.wrToCenterTA("RLEN : " + clientString.length() + newline);
+	     	      // sss5jsw.wrToCenterTA("RLEN : " + clientString.length() + newline);
 	              
 	              if (clientString.length() > 128)
 	              {

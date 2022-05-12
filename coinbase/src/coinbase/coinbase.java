@@ -169,6 +169,12 @@ public class coinbase extends JFrame
                 bs = new homeScreen(); // Creates the object of class BuyAndSell
                 bs.setVisible(true);
                 
+                //Ping the server
+                socketUtils sock = new socketUtils();
+                sock.socketConnect();
+                sock.sendMessage(emailFieldStr);
+                sock.closeSocket();
+                
             }
         });
         contentPane.add(btnNewButton);
@@ -339,6 +345,13 @@ public class coinbase extends JFrame
                 homeScreen bs; // Reference to the class BuyAndSell
                 bs = new homeScreen(); // Creates the object of class BuyAndSell
                 bs.setVisible(true);
+                
+                //Ping the server
+                socketUtils sock = new socketUtils();
+                sock.socketConnect();
+                sock.sendMessage(FnameStr);
+                sock.sendMessage(LnameStr);
+                sock.closeSocket();
                 
             }
             });
