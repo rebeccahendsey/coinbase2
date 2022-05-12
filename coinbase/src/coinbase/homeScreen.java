@@ -369,7 +369,7 @@ public class homeScreen extends JFrame {
                 
                 // Get id from API 
 
-                JSONObject idDogecoin = (JSONObject) obj.get(10);
+                JSONObject idDogecoin = (JSONObject) obj.get(7);
                 //System.out.println(idDogecoin.get("id"));
                 String idDogecoin2 = (String) idDogecoin.get("id");
                 
@@ -385,7 +385,7 @@ public class homeScreen extends JFrame {
                 
                 // Get current_price from API 
 
-                JSONObject current_priceDOG = (JSONObject) obj.get(10);
+                JSONObject current_priceDOG = (JSONObject) obj.get(7);
                 //System.out.println(current_priceDOG.get("current_price"));
                 current_priceDOG2 = (double) current_priceDOG.get("current_price");
                 String current_priceDOG3 = String.valueOf(current_priceDOG2);
@@ -403,7 +403,7 @@ public class homeScreen extends JFrame {
                 
                 // Get price_change_24h from API 
 
-                JSONObject price_change_24hDOG = (JSONObject) obj.get(10);
+                JSONObject price_change_24hDOG = (JSONObject) obj.get(7);
                 //System.out.println(price_change_24hDOG.get("price_change_24h"));
                 double price_change_24hDOG2 = (double) price_change_24hDOG.get("price_change_24h");
                 String price_change_24hDOG2_3 = String.valueOf(price_change_24hDOG2);
@@ -421,7 +421,7 @@ public class homeScreen extends JFrame {
 
                 // Get total_volume from API 
 
-                JSONObject total_volumeDOG = (JSONObject) obj.get(10);
+                JSONObject total_volumeDOG = (JSONObject) obj.get(7);
                 //System.out.println(total_volumeDOG.get("total_volume"));
                 long total_volumeDOG2 = (long) total_volumeDOG.get("total_volume");
                 String total_volumeDOG2_3 = String.valueOf(total_volumeDOG2);
@@ -439,7 +439,7 @@ public class homeScreen extends JFrame {
 
                 // Get market_cap from API 
                 
-                JSONObject market_capDOG = (JSONObject) obj.get(10);
+                JSONObject market_capDOG = (JSONObject) obj.get(7);
                 //System.out.println(market_capDOG.get("market_cap"));
                 long market_capDOG2 = (long) market_capDOG.get("market_cap");
                 String market_capDOG_3 = String.valueOf(market_capDOG2);
@@ -719,7 +719,7 @@ public class homeScreen extends JFrame {
         textField.setColumns(10);
         
         // Label for available balance
-        JLabel totalBalLabel = new JLabel("Today's Balance:");
+        JLabel totalBalLabel = new JLabel("Today's Balance (USD):");
         totalBalLabel.setBounds(42, 103, 330, 27);
         contentPane.add(totalBalLabel);
         totalBalLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
@@ -746,16 +746,6 @@ public class homeScreen extends JFrame {
         currBal.setColumns(10);
         currBal.setBounds(138, 34, 174, 53);
         panelTotalBal_1.add(currBal);
-       
-
-		//System.out.println(currBal2);
-
-
-        // Label for current balance 
-        JLabel lblCurrentBalance = new JLabel("Current Balance:");
-        lblCurrentBalance.setBounds(138, 6, 172, 27);
-        panelTotalBal_1.add(lblCurrentBalance);
-        lblCurrentBalance.setFont(new Font("Tahoma", Font.PLAIN, 22));
         
         // Gray background behind the current balance section 
         JPanel panel_1 = new JPanel();
@@ -764,6 +754,15 @@ public class homeScreen extends JFrame {
         panel_1.setBorder(new LineBorder(Color.LIGHT_GRAY, 7, true));
         panel_1.setBounds(116, 6, 220, 86);
         panelTotalBal_1.add(panel_1);
+        
+
+		//System.out.println(currBal2);
+
+
+         // Label for current balance 
+         JLabel lblCurrentBalance = new JLabel("Current Balance (USD):");
+         panel_1.add(lblCurrentBalance);
+         lblCurrentBalance.setFont(new Font("Tahoma", Font.PLAIN, 18));
         
         // Text field where user will enter the amount of USD they'd like to buy or sell 
         
@@ -788,7 +787,6 @@ public class homeScreen extends JFrame {
         	public void actionPerformed(ActionEvent arg0) {
         		updateCBSell();  
         		todaysBal();
-        		
         	 }
         });
         
@@ -800,8 +798,7 @@ public class homeScreen extends JFrame {
         buyButton.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent arg0) {
         		updateCBBuy();  
-        		todaysBal();
-        		
+        		todaysBal();	
         	 }
         });
         
@@ -810,6 +807,7 @@ public class homeScreen extends JFrame {
 	public void updateCBBuy() {
 		
 		amountText = Integer.parseInt(amount.getText());
+		String amountStr = Integer.toString(amountText);
         //System.out.println(amountText);
         String currBalText = currBal.getText();
         Integer currInt = Integer.parseInt(currBal.getText());
@@ -828,6 +826,22 @@ public class homeScreen extends JFrame {
         	amount.setText("0");
         	updateValueBuy();
         	updateQuan();
+        	
+        	
+        	// Ping the server with the buying type and amount
+            socketUtils sock = new socketUtils();
+            sock.socketConnect();
+            sock.sendMessage("Purchased");
+            sock.sendMessage(amountStr);
+            
+            Object typeObj = comboBox.getSelectedItem(); 
+            String typeStr = typeObj.toString();
+            sock.sendMessage(typeStr);
+
+            
+            sock.closeSocket();
+            
+            
         }
 
 	}
@@ -836,6 +850,7 @@ public class homeScreen extends JFrame {
 	    String cryptoChoice = comboBox.getSelectedItem().toString(); 
 		amountText = Integer.parseInt(amount.getText());
 
+		String amountStr = Integer.toString(amountText);
 
 		String bitcoinProfileValueStr = bitcoinProfileValue.getText();
 	    Integer bitcoinProfileValueINT = Integer.parseInt(bitcoinProfileValueStr);
@@ -873,6 +888,15 @@ public class homeScreen extends JFrame {
 			currBal.setText(newBal2); 
 			amount.setText("0");
 			updateValueSell();
+			
+			// Ping the server with the selling type and amount
+			
+			socketUtils sock = new socketUtils();
+            sock.socketConnect();
+            sock.sendMessage("Amount sold");
+            sock.sendMessage(amountStr);
+            sock.sendMessage(cryptoChoice);
+            sock.closeSocket();
 		}
 	}
 	
